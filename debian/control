@@ -1,0 +1,12 @@
+Source: ros-rolling-sick-safetyscanners2
+Section: misc
+Priority: optional
+Maintainer: Lennart Puck <puck@fzi.de>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, liburdfdom-tools <!nocheck>, ros-rolling-ament-cmake, ros-rolling-ament-cmake-pytest <!nocheck>, ros-rolling-ament-lint-auto <!nocheck>, ros-rolling-ament-lint-common <!nocheck>, ros-rolling-diagnostic-updater, ros-rolling-launch-testing-ament-cmake <!nocheck>, ros-rolling-launch-testing-ros <!nocheck>, ros-rolling-rclcpp, ros-rolling-rclcpp-lifecycle, ros-rolling-sensor-msgs, ros-rolling-sick-safetyscanners-base, ros-rolling-sick-safetyscanners2-interfaces, ros-rolling-xacro <!nocheck>, ros-rolling-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-rolling-sick-safetyscanners2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-rolling-diagnostic-updater, ros-rolling-rclcpp, ros-rolling-rclcpp-lifecycle, ros-rolling-robot-state-publisher, ros-rolling-rviz2, ros-rolling-sensor-msgs, ros-rolling-sick-safetyscanners-base, ros-rolling-sick-safetyscanners2-interfaces, ros-rolling-xacro, ros-rolling-ros-workspace
+Description: ROS2 Driver for the SICK safetyscanners
