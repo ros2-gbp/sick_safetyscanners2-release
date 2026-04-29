@@ -1,0 +1,12 @@
+Source: ros-lyrical-sick-safetyscanners2
+Section: misc
+Priority: optional
+Maintainer: Lennart Puck <puck@fzi.de>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, liburdfdom-tools <!nocheck>, ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-pytest <!nocheck>, ros-lyrical-ament-lint-auto <!nocheck>, ros-lyrical-ament-lint-common <!nocheck>, ros-lyrical-diagnostic-updater, ros-lyrical-launch-testing-ament-cmake <!nocheck>, ros-lyrical-launch-testing-ros <!nocheck>, ros-lyrical-rclcpp, ros-lyrical-rclcpp-lifecycle, ros-lyrical-sensor-msgs, ros-lyrical-sick-safetyscanners-base, ros-lyrical-sick-safetyscanners2-interfaces, ros-lyrical-xacro <!nocheck>, ros-lyrical-ros-workspace
+Homepage: https://index.ros.org/p/sick_safetyscanners2/#lyrical
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-sick-safetyscanners2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-lyrical-diagnostic-updater, ros-lyrical-rclcpp, ros-lyrical-rclcpp-lifecycle, ros-lyrical-robot-state-publisher, ros-lyrical-rviz2, ros-lyrical-sensor-msgs, ros-lyrical-sick-safetyscanners-base, ros-lyrical-sick-safetyscanners2-interfaces, ros-lyrical-xacro, ros-lyrical-ros-workspace
+Description: ROS2 Driver for the SICK safetyscanners
