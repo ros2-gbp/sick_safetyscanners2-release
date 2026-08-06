@@ -1,3 +1,26 @@
+## sick_safetyscanners2 (humble) - 1.0.5-1
+
+The packages in the `sick_safetyscanners2` repository were released into the `humble` distro by running `/usr/bin/bloom-release --rosdistro humble sick_safetyscanners2` on `Thu, 06 Aug 2026 15:53:07 -0000`
+
+The `sick_safetyscanners2` package was released.
+
+Version of package(s) in repository `sick_safetyscanners2`:
+
+- upstream repository: https://github.com/SICKAG/sick_safetyscanners2.git
+- release repository: https://github.com/ros2-gbp/sick_safetyscanners2-release.git
+- rosdistro version: `1.0.4-1`
+- old version: `1.0.4-1`
+- new version: `1.0.5-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.3`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## sick_safetyscanners2 (jazzy) - 1.0.4-1
 
 The packages in the `sick_safetyscanners2` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --ros-distro jazzy --track jazzy sick_safetyscanners2` on `Wed, 25 Sep 2024 08:19:04 -0000`
