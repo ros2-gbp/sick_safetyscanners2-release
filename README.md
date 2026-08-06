@@ -152,6 +152,13 @@ Frequency and sensor diagnostics
 Returns all configured protective and warning fields for the sensor
 
 
+`
+~/status_overview
+`
+
+Returns the status overview of the sensor.
+[There is further information of error codes.](docs/error_handling.md#error-codes)
+
 ### ROS2 parameters
 
 | Parameter Name        | Type    | Default      | Required on startup | Information                                                                                                                                                                                                                                |
