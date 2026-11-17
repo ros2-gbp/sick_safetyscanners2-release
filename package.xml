@@ -2,12 +2,15 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>sick_safetyscanners2</name>
-  <version>1.0.5</version>
+  <version>1.1.0</version>
   <description>ROS2 Driver for the SICK safetyscanners</description>
   <maintainer email="eichmann@fzi.de">Christian Eichmann</maintainer>
   <maintainer email="trapp@fzi.de">Thomas Trapp</maintainer>
+
+  <license file="LICENSE.txt">Apache-2.0</license>
+  <license file="LICENSES/BSD-3-Clause.txt">BSD-3-Clause</license>
+
   <author>Lennart Puck</author>
-  <license>ALv2</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -17,6 +20,7 @@
 
   <depend>boost</depend>
   <depend>diagnostic_updater</depend>
+  <depend>lifecycle_msgs</depend>
   <depend>rclcpp</depend>
   <depend>rclcpp_lifecycle</depend>
   <depend>sensor_msgs</depend>

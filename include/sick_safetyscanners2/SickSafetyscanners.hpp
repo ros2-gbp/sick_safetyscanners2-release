@@ -148,20 +148,20 @@ public:
     std::string sensor_ip;
     node.template get_parameter<std::string>("sensor_ip", sensor_ip);
     RCLCPP_INFO(getLogger(), "sensor_ip: %s", sensor_ip.c_str());
-    m_config.m_sensor_ip = boost::asio::ip::address_v4::from_string(sensor_ip);
+    m_config.m_sensor_ip = boost::asio::ip::make_address_v4(sensor_ip);
 
     std::string interface_ip;
     node.template get_parameter<std::string>("interface_ip", interface_ip);
     RCLCPP_INFO(getLogger(), "interface_ip: %s", interface_ip.c_str());
     m_config.m_interface_ip =
-        boost::asio::ip::address_v4::from_string(interface_ip);
+        boost::asio::ip::make_address_v4(interface_ip);
 
     std::string host_ip;
     node.template get_parameter<std::string>("host_ip", host_ip);
     RCLCPP_INFO(getLogger(), "host_ip: %s", host_ip.c_str());
     // TODO check if valid IP?
     m_config.m_communications_settings.host_ip =
-        boost::asio::ip::address_v4::from_string(host_ip);
+        boost::asio::ip::make_address_v4(host_ip);
 
     int host_udp_port;
     node.template get_parameter<int>("host_udp_port", host_udp_port);
@@ -352,6 +352,15 @@ public:
   void readFirmwareVersion();
 
 private:
+  /**
+   * @brief getDateString converts the date representation received as days since 1972-01-01 and
+   * milliseconds since the start of that day to the form as given in the Cola2 documentation
+   * @param days_since_1972 days from Jan 1, 1972 until day of transfer/modification
+   * @param milli_seconds milliseconds since 0:00 on that day of transfer/modification
+   * @return date string in the format YYYY-mm-DD HH:MM:SS
+   */
+  std::string getDateString(uint32_t days_since_1972, uint32_t milli_seconds);
+
   rclcpp::Logger getLogger() {
     return rclcpp::get_logger("SickSafetyscanners");
   }
