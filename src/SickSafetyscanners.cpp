@@ -32,6 +32,8 @@
 
 #include <sick_safetyscanners2/SickSafetyscanners.hpp>
 
+#include <ctime>
+
 namespace sick {
 rcl_interfaces::msg::SetParametersResult SickSafetyscanners::parametersCallback(
     std::vector<rclcpp::Parameter> parameters) {
@@ -54,7 +56,7 @@ rcl_interfaces::msg::SetParametersResult SickSafetyscanners::parametersCallback(
       m_config.m_frame_id = param.value_to_string();
     } else if (param.get_name() == "host_ip") {
       m_config.m_communications_settings.host_ip =
-          boost::asio::ip::address_v4::from_string(param.value_to_string());
+          boost::asio::ip::make_address_v4(param.value_to_string());
       update_sensor_config = true;
     } else if (param.get_name() == "host_udp_port") {
       m_config.m_communications_settings.host_udp_port = param.as_int();
@@ -306,15 +308,31 @@ bool SickSafetyscanners::getStatusOverview(
   response->application_state = d.getApplicationState();
   response->current_time_power_on_count = d.getCurrentTimePowerOnCount();
 
-  response->current_time_time = d.getCurrentTimeTime();
   response->current_time_date = d.getCurrentTimeDate();
+  response->current_time_time = d.getCurrentTimeTime();
+  response->current_time =
+      getDateString(response->current_time_date, response->current_time_time);
 
   response->error_info_code = d.getErrorInfoCode();
 
-  response->error_info_time = d.getErrorInfoTime();
   response->error_info_time_date = d.getErrorInfoDate();
+  response->error_info_time_time = d.getErrorInfoTime();
+  response->error_info_time =
+      getDateString(response->error_info_time_date, response->error_info_time_time);
 
   return true;
+}
+
+std::string SickSafetyscanners::getDateString(uint32_t days_since_1972, uint32_t milli_seconds) {
+  // 730 days from Jan 1 1970 to Jan 1 1972.
+  std::time_t t =
+      (730 + static_cast<std::time_t>(days_since_1972)) * 24 * 3600 +
+      milli_seconds / 1000;
+  char buffer[40];
+  std::string retval;
+  std::strftime(buffer, 40, "%F %X", std::gmtime(&t));
+  retval = buffer;
+  return retval;
 }
 
 void SickSafetyscanners::readTypeCodeSettings() {
